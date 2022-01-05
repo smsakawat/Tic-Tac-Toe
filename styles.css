@@ -44,7 +44,9 @@ nav ul {
   justify-content: center;
   align-items: center;
 }
-
+.info {
+  font-size: 2rem;
+}
 .box:hover {
   background-color: #eee;
 }
@@ -67,4 +69,16 @@ nav ul {
 }
 .excite_img {
   display: none;
+}
+#resetBtn {
+  border-radius: 5px;
+  padding: 0.8rem 1.4rem;
+  margin-left: 3rem;
+  background-color: rgb(161, 43, 43);
+  cursor: pointer;
+  color: #fff;
+  border: none;
+}
+#resetBtn:hover {
+  background-color: rgba(121, 26, 26, 0.7);
 }
