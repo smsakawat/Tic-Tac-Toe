@@ -19,6 +19,8 @@ const checkWin = () => {
     [0, 3, 6],
     [1, 4, 7],
     [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
   ];
   wins.forEach((e) => {
     if (
@@ -52,7 +54,6 @@ Array.from(boxes).forEach((element) => {
 });
 
 const reset = document.getElementById("resetBtn");
-
 // Reset game
 reset.addEventListener("click", () => {
   let boxTexts = document.querySelectorAll(".boxtext");
@@ -61,5 +62,5 @@ reset.addEventListener("click", () => {
   });
   turn = "X";
   isgameover = false;
-  document.querySelector('.info').innerText = "Turn for " + turn;
+  document.querySelector(".info").innerText = "Turn for " + turn;
 });
