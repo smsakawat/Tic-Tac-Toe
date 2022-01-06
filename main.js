@@ -3,7 +3,7 @@ let audioTurn = new Audio("ting.mp3");
 let gameOver = new Audio("gameover.mp3");
 let turn = "X";
 let isGameOver = false;
-console.log("welcoome to tic tac toe");
+
 // Func for changing the turn
 const changeTurn = () => {
   return turn === "X" ? "0" : "X";
@@ -22,6 +22,7 @@ const checkWin = () => {
     [0, 4, 8],
     [2, 4, 6],
   ];
+
   wins.forEach((e) => {
     if (
       boxTexts[e[0]].innerText === boxTexts[e[1]].innerText &&
@@ -32,6 +33,9 @@ const checkWin = () => {
         boxTexts[e[0]].innerText
       } Won`;
       isGameOver = true;
+      document
+        .querySelector(".excite_img")
+        .getElementsByTagName("img")[0].style.width = "20vmax";
     }
   });
 };
@@ -47,20 +51,23 @@ Array.from(boxes).forEach((element) => {
       audioTurn.play();
       checkWin();
       if (!isGameOver) {
-        document.querySelector(".info").innerText = "Turn for " + turn;
+        document.getElementById("msg_info").innerText = `Turn for ${turn}`;
       }
     }
   });
 });
 
+// event listener for reset
 const reset = document.getElementById("resetBtn");
-// Reset game
 reset.addEventListener("click", () => {
-  let boxTexts = document.querySelectorAll(".boxtext");
-  Array.from(boxTexts).forEach((element) => {
-    element.innerText = "";
+  console.log("reset clicked");
+  const boxes = document.querySelectorAll(".box");
+  Array.from(boxes).forEach((element) => {
+    element.querySelector(".boxtext").innerText = "";
   });
   turn = "X";
-  isgameover = false;
-  document.querySelector(".info").innerText = "Turn for " + turn;
+  document.querySelector(".info").innerText = `Turn for ${turn}`;
+  document
+    .querySelector(".excite_img")
+    .getElementsByTagName("img")[0].style.width = "0";
 });
